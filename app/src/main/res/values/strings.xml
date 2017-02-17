@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AutOS</string>
+    <string name="prefs_file">AutoOSPrefs</string>
+    <string name="prefs_mymanufacturer">MyManufacturer</string>
+    <string name="select_your_manufacturer">Selecciona tu fabricante</string>
+    <string name="manufacturer">Fabricante</string>
+    <string name="manufacturer_selected">Fabricante seleccionado</string>
 </resources>

@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.dannyx.autos.Models.Contracts.ManufacturerContract.ManufacturerTable;
 import com.dannyx.autos.Models.Entities.Manufacturer;
 
@@ -79,13 +81,13 @@ public class ManufacturerRepository extends SQLiteOpenHelper {
      * @return Todos los registros existentes
      */
     public ArrayList<Manufacturer> getAll() {
-        String GETALL_SQL = "SELECT * FROM " + ManufacturerTable.TABLE_NAME;
+        String GETALL_SQL = "SELECT * FROM " + ManufacturerTable.TABLE_NAME + ";";
         ArrayList<Manufacturer> resultsList = new ArrayList<>();
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(GETALL_SQL, null);
         if(cursor.moveToFirst()) {
-            while (cursor.isAfterLast()) {
+            while (!cursor.isAfterLast()) {
                 int id = cursor.getInt(cursor.getColumnIndex(ManufacturerTable.COLUMN_ID));
                 String name = cursor.getString(cursor.getColumnIndex(ManufacturerTable.COLUMN_NAME));
                 String logo = cursor.getString(cursor.getColumnIndex(ManufacturerTable.COLUMN_LOGO));
