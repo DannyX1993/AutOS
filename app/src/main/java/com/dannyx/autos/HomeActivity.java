@@ -9,11 +9,8 @@ import com.dannyx.autos.Models.Repositories.ManufacturerRepository;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
+import android.widget.LinearLayout;
 
 public class HomeActivity extends LauncherActivity {
 
@@ -30,7 +27,7 @@ public class HomeActivity extends LauncherActivity {
         Manufacturer manufacturer = db.getManufacturerByID(sharedPreferences.getInt(Config.PREF_MYMANUFACTURER, 0));
 
         ImageView image = (ImageView) findViewById(R.id.carlogo);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.activity_main);
+        LinearLayout relativeLayout = (LinearLayout) findViewById(R.id.activity_main);
 
         try {
             int logoResourceId = R.drawable.class.getField(manufacturer.get_logo()).getInt(null);
